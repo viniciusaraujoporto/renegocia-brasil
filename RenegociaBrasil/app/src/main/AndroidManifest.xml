@@ -23,9 +23,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <provider
-            android:authorities="dataprev.renegociabrasil.provider.CnpjProvider"
-            android:name=".provider.CnpjProvider"/>
+            android:name=".provider.CnpjProvider"
+            android:authorities="dataprev.renegociabrasil.provider.CnpjProvider" />
+
+        <activity android:name=".ContribuintesActivity" />
+        <activity android:name=".exemplo.MainActivity" />
+        <activity android:name=".LeisActivity" />
+        <activity
+            android:name=".ParcelamentoLeisActivity"
+            android:label="@string/title_activity_parcelamento_leis"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

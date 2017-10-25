@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:background="@color/white"
+    android:padding="6dip" >
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="35dip"
+        android:layout_height="55dip"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="11dip"
+        android:contentDescription="TODO"
+        android:src="@drawable/go" />
+
+    <TextView
+        android:id="@+id/nome"
+        android:layout_width="fill_parent"
+        android:layout_height="26dip"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@id/icon"
+        android:ellipsize="marquee"
+        android:maxLines="1"
+        android:text="Vinicius de Araújo Porto"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/numeroinscricao"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/nome"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_toRightOf="@id/icon"
+        android:gravity="center_vertical"
+        android:text="013.568.224-01"
+        android:textSize="16sp" />
+</RelativeLayout>

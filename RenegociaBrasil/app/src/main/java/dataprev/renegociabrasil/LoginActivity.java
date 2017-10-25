@@ -3,7 +3,9 @@ package dataprev.renegociabrasil;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.SQLException;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -30,9 +32,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.InputMismatchException;
+import java.util.concurrent.ExecutionException;
+
+import dataprev.renegociabrasil.database.DataBaseHelper;
+import dataprev.renegociabrasil.exemplo.MainActivity;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -95,6 +102,29 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+
+        DataBaseHelper myDbHelper = new DataBaseHelper(this);
+
+        try {
+
+            myDbHelper.createDataBase();
+
+        } catch (IOException ioe) {
+
+            throw new Error("Unable to create database");
+
+        }
+
+        try {
+
+            myDbHelper.openDataBase();
+
+        } catch (SQLException sqle) {
+
+            throw sqle;
+
+        }
+
     }
 
     private void populateAutoComplete() {
@@ -189,7 +219,18 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             // perform the user login attempt.
             showProgress(true);
             mAuthTask = new UserLoginTask(email, password);
-            mAuthTask.execute((Void) null);
+            try {
+                boolean sucesso = mAuthTask.execute((Void) null).get();
+                if(sucesso){
+                    Intent intent = new Intent(this, ContribuintesActivity.class);
+                    intent.putExtra("user", email);
+                    startActivity(intent);
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
         }
     }
 
