@@ -1,9 +1,12 @@
 package dataprev.renegociabrasil;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
@@ -12,6 +15,8 @@ import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
+
+import dataprev.renegociabrasil.service.DetalheActivity;
 
 public class LeisActivity extends AppCompatActivity {
 
@@ -28,6 +33,19 @@ public class LeisActivity extends AppCompatActivity {
         chart.setDescription("My Chart");
         chart.animateXY(2000, 2000);
         chart.invalidate();
+
+        Button verCreditosLeiButton = (Button) findViewById(R.id.lei_button);
+        verCreditosLeiButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listarCreditos();
+            }
+        });
+    }
+
+    private void listarCreditos(){
+        Intent intent = new Intent(this, CreditosActivity.class);
+        startActivity(intent);
     }
 
     private ArrayList<BarDataSet> getDataSet() {

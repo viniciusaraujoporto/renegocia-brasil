@@ -7,11 +7,23 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@drawable/radialgradientback"
     tools:context=".LeisActivity">
 
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/chart"
+        android:layout_width="500dip"
+        android:layout_height="400dip" />
+    <Button
+        android:id="@+id/lei_button"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="50dip"
+        android:layout_below="@+id/chart"
+        style="?android:textAppearanceSmall"
+        android:text="Listar Débitos na Lei 12996"
+        android:layout_alignParentEnd="true"
+        android:textColor="@color/white"
+        android:background="@color/colorPrimaryDark"/>
+    />
 
 </RelativeLayout>
