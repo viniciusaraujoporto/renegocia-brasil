@@ -41,6 +41,15 @@ public class LeisActivity extends AppCompatActivity {
                 listarCreditos();
             }
         });
+
+        String numeroInscricao = getIntent().getExtras().getString("numeroInscricao");
+        if(numeroInscricao.equals("013.568.224-01")){
+            ((Button)findViewById(R.id.lei_button)).setText("Ver Débitos da Lei 12865/2013");
+        } else {
+            ((Button)findViewById(R.id.lei_button)).setText("Ver Débitos da MP 766/2017");
+        }
+
+
     }
 
     private void listarCreditos(){

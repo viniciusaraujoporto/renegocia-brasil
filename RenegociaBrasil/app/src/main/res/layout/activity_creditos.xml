@@ -14,6 +14,17 @@
         android:layout_centerHorizontal="true"
         android:choiceMode="multipleChoice" />
 
+    <Button
+        android:id="@+id/lei_button"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:layout_below="@+id/listView"
+        style="?android:textAppearanceSmall"
+        android:text="Aderir ao Parcelamento"
+        android:layout_alignParentEnd="true"
+        android:textColor="@color/white"
+        android:background="@color/colorPrimaryDark"/>
+
 
 </RelativeLayout>
 

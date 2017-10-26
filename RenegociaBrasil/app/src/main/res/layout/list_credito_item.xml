@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/credito_item"
+    android:layout_width="fill_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:background="@color/white"
+    android:padding="6dip">
+
+    <TextView
+        android:id="@+id/numerocredito"
+        android:layout_width="60dip"
+        android:layout_height="95dip"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:textSize="11sp"
+        android:text="601200022"
+        android:textStyle="bold"
+        android:layout_marginRight="11dip"
+         />
+
+    <TextView
+        android:id="@+id/valorprincipal"
+        android:layout_width="150dip"
+        android:layout_height="26dip"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@id/numerocredito"
+        android:ellipsize="marquee"
+        android:maxLines="1"
+        android:gravity="center_vertical"
+        android:text="ValorPrincipal"
+        android:textSize="10sp"
+        android:layout_alignEnd="@+id/valormulta" />
+
+    <TextView
+        android:id="@+id/valormulta"
+        android:layout_width="150dip"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/valorprincipal"
+        android:layout_alignParentTop="true"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_toRightOf="@id/numerocredito"
+        android:gravity="center_vertical"
+        android:text="013.568.224-01"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/valorjuros"
+        android:layout_width="120dip"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_toRightOf="@id/valorprincipal"
+        android:gravity="center_vertical"
+        android:text="013.568.224-01"
+        android:textSize="10sp"
+        android:layout_above="@+id/valorprincipal" />
+    <TextView
+        android:id="@+id/valortotal"
+        android:layout_width="120dip"
+        android:layout_height="wrap_content"
+        android:layout_alignWithParentIfMissing="true"
+        android:gravity="center_vertical"
+        android:text="013.568.224-01"
+        android:textSize="10sp"
+        android:layout_below="@+id/valormulta"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/valorjuros" />
+
+    <CheckBox android:id="@+id/checkbox_cheese"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/valorjuros"
+        android:onClick="onCheckboxClicked"
+        android:checked="true"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:layout_alignParentTop="true" />
+
+
+</RelativeLayout>
